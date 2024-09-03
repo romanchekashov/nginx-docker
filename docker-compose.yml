@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
+      - ./public:/usr/share/nginx/html
+      - ./sites-available:/home/sites-available
