@@ -2,9 +2,32 @@ Nginx with docker-compose
 =================
 Nginx is an open source HTTP server and reverse proxy server. It is an essential part of the LEMP stack, which consists of Linux, Nginx, MySQL, and PHP. Nginx is known for its high performance, stability, rich feature set, simple configuration, and low resource consumption.
 
-## Create a new Nginx config for your site with SSL certificates in `sites-available/` directory:
+## How to use Nginx with Docker Compose:
+1. Copy Nginx config example from [/examples-nginx-configs](./examples-nginx-configs) to [/sites-available](./sites-available) directory and edit it as needed.
+2. After any change in Nginx configs just restart Nginx (docker compose) with script below:
+```shell
+./restart.sh
+# or
+docker-compose down          # stop Dockers
+docker-compose up --build -d # build and start Dockers
+```
+### Examples of Nginx configs for your site:
+- [Backend service available by HTTPS](./examples-nginx-configs/example_ssl.conf)
+- [React SPA available by HTTPS](./examples-nginx-configs/react_spa_ssl.conf)
 
-### If you using Let's Encrypt SSL certificate:
+#### By default, Nginx `root /usr/share/nginx/html;` points to [/public](./public) directory through [docker-compose.yml](./docker-compose.yml) volumes:
+```shell
+# docker-compose.yml
+volumes:
+  - ./public:/usr/share/nginx/html
+```
+> Any change in [/public](./public) will be visible outside immediately while Nginx-docker is running!
+---
+
+## How to edit Nginx config example:
+### Create or copy example of Nginx config for your site with SSL certificates in [/sites-available](./sites-available) directory:
+
+#### If you using Let's Encrypt SSL certificate:
 - Update `example.com` with your domain name.
 ```shell
 # sites-available/example_ssl.conf
@@ -34,7 +57,7 @@ server {
 }
 ```
 
-### If you have SSL certificates files `fullchain.pem` and `privkey.pem`:
+#### If you have SSL certificates files `fullchain.pem` and `privkey.pem`:
 1. Add volume to `docker-compose.yml` with path to directory with your SSL certificates files.
 ```shell
 # docker-compose.yml
@@ -55,7 +78,7 @@ server {
 }
 ```
 
-## Restart Nginx (docker compose) with script:
+### Restart Nginx (docker compose) with script:
 ```shell
 ./restart.sh
 ```
