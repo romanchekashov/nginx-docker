@@ -2,11 +2,6 @@ Nginx with docker-compose
 =================
 Nginx is an open source HTTP server and reverse proxy server. It is an essential part of the LEMP stack, which consists of Linux, Nginx, MySQL, and PHP. Nginx is known for its high performance, stability, rich feature set, simple configuration, and low resource consumption.
 
-## Restart Nginx with script:
-```shell
-./restart.sh
-```
-
 ## Create a new Nginx config for your site with SSL certificates in `sites-available/` directory:
 
 ### If you using Let's Encrypt SSL certificate:
@@ -58,4 +53,9 @@ server {
   
   # ... (continue copy from above example_ssl.conf)
 }
+```
+
+## Restart Nginx (docker compose) with script:
+```shell
+./restart.sh
 ```
