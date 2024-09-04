@@ -1,6 +1,7 @@
 Nginx with docker-compose
 =================
 Nginx is an open source HTTP server and reverse proxy server. It is an essential part of the LEMP stack, which consists of Linux, Nginx, MySQL, and PHP. Nginx is known for its high performance, stability, rich feature set, simple configuration, and low resource consumption.
+> Note: There is an alternative project which you can use if you want: [docker-nginx-certbot by JonasAlfredsson](https://github.com/JonasAlfredsson/docker-nginx-certbot)
 
 ## How to create Let's Encrypt SSL certificates look: [LETSENCRYPT.md](./LETSENCRYPT.md)
 
