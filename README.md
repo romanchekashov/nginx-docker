@@ -17,8 +17,9 @@ docker-compose down          # stop Dockers
 docker-compose up --build -d # build and start Dockers
 ```
 ### Examples of Nginx configs for your site:
-- [Backend service available by HTTPS](./examples-nginx-configs/example_ssl.conf)
-- [React SPA available by HTTPS](./examples-nginx-configs/react_spa_ssl.conf)
+- [Backend service](./examples-nginx-configs/example.conf)
+- [Backend service (HTTPS)](./examples-nginx-configs/example_ssl.conf)
+- [React SPA (HTTPS)](./examples-nginx-configs/react_spa_ssl.conf)
 
 #### By default, Nginx `root /usr/share/nginx/html;` points to [/public](./public) directory through [docker-compose.yml](./docker-compose.yml) volumes:
 ```shell
