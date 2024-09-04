@@ -1,6 +1,6 @@
 #! /bin/bash
 
-echo "Redeploy Nginx..."
+echo "Nginx-docker redeploy..."
 
 git pull
 
@@ -9,4 +9,4 @@ docker-compose up --build -d # build and start Dockers
 
 docker ps -a
 
-echo "Nginx deployed!"
+echo "Nginx-docker deployed!"
